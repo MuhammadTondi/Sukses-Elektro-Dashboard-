@@ -1,0 +1,95 @@
+A. TAB KASIR :
+1. Ketika produk masuk kedalam keranjang, akan muncul list produk yang berisi beberapa informasi (kode produk, nama produk, banyaknya produk, satuan, harga produk, jumlah harga) serta ada edit dan hapus pada setiap produk
+2. Setiap kita menekan/memasukkan produk ke dalam list keranjang barang, sistem akan memunculkan pop up yang berisi form yang perlu diisi, yaitu:
+* Nama Produk (Otomatis terisi)
+* Code Produk (Otomatis terisi) (primary key)
+* Kategori Produk (Otomatis terisi)
+* Harga Jual Satuan Produk (Otomatis terisi) 
+* Jumlah Produk (Kosong)
+* Satuan produk (cth: pcs,, lusin, meter, dll) (kosong)
+* Diskon (Kosong) (opsional)
+note: kolom “Jumlah Produk” wajib diisi. sedangkan kolom “diskon” bersifat opsional (hanya diisi ketika ingin memberikan diskon per produk kepada customer). yang bagian otomatis terisi berdasarkan data produk yang telah disimpan di database
+3. Ketika menekan tombol “Proses Pembayaran” akan muncul pop up yang berisi teks “Pilih jenis pembayaran” yang dibawahnya terdapat tombol  “Cash” dan “Hutang”. 
+   * jika cash maka akan muncul pop up input nominal pembayaran. Setelah memasukkan nominal yang diberi customer maka pop up tersebut akan memunculkan tombol konfirmasi apakah transaksi dilanjutkan atau tidak, jika dilanjutkan maka akan muncul nominal kembaliannya dan secara otomatis sistem akan ngeprint struk / bon. Sistem akan memasukkan data transaksi tersebut kedalam data pemasukan. 
+   * Jika hutang  maka akan muncul form yang harus diisi (nama, alamat, no hp, waktu hutang (hari)). setelah diisi maka otomatis data akan masuk ke dalam data piutang
+4. Tambahkan kolom untuk input nominal diskon (diletakkan diatas  tombol proses pembayaran) 
+5. Ketika menekan tombol “tambah” di bagian informasi pelanggan, akan muncul pop up formulir yang akan meminta kita untuk mengisi beberapa informasi (Nama, No hp, dan alamat)
+
+
+
+
+B. Produk
+1. Tambahkan beberapa informasi di setiap produk(Supplier, Harga Modal, tgl update data) 
+2. Saat kita menekan tombol “Tambah Produk”. Sistem akan memunculkan pop up yang berisikan form yang perlu kita isi, yaitu:
+* Nama Produk
+* Code Produk (Otomatis terisi (bisa diubah)) (primary key)
+* Kategori Produk 
+* Harga Modal  produk
+* Harga Jual Produk
+* Minimal stok 
+* Asal supplier
+* Satuan produk (pcs, lusin, meter,dll)
+3. Tambahkan tombol edit di setiap produk. Jika kita menekan tombol tersebut, maka akan muncul form seperti pada tombol “Tambah Produk”. Hanya saja kolomnya sudah terisi dengan data yang telah kita masukkan sebelumnya (tidak kosong) 
+
+
+C. Inventori
+1. Tambahkan tombol filter di samping search bar cari produk (yg bawah), berguna untuk memfilter list produk sesuai dengan statusnya (Normal, Rendah, Habis)
+2. Tambahkan tombol order di samping informasi “status”. Tombol tersebut berfungsi sebagai shortcut untuk memasukkan produk ke keranjang order. 
+
+
+D. Pelanggan 
+1. Hapus tombol edit di setiap nama customer (tombol yang diletak disamping informasi “terakhir belanja” saja. tombol edit yang di dalam “titik tiga vertikal” yang ujung itu jangan dihapus). 
+2. di bagian kontak hanya terdapat no hp saja (emailnya dihapus)
+3. Jika menekan tombol “Tambah Pelanggan” akan muncul form yang harus kita isi (id customer, nama customer, no hp customer, alamat customer). Setelah kita memasukan form tersebut, sistem akan menambahkan kedalam list daftar supplier.
+4. Jika kita menekan tombol edit pada setiap list pelanggan, maka akan muncul form seperti pada tombol “Tambah pelanggan”. Hanya saja kolomnya sudah terisi dengan data yang telah kita masukkan sebelumnya (tidak kosong). jika kita sudah mengeditnya, maka secara otomatis data terupdate
+
+
+E. Supplier
+* Tampilan tab supplier sama dengan tab pelanggan. hanya saja diisi dengan data supplier.
+* Ketika menekan tambah supplier, maka akan muncul form yang harus kita isi (id supplier, nama supplier, no hp supplier, alamat supplier, ketentuan masa kredit (hari). Setelah kita memasukan form tersebut, sistem akan menambahkan ke dalam list daftar supplier.
+* Jika kita menekan tombol edit pada setiap list pelanggan, maka akan muncul form seperti pada tombol “Tambah pelanggan”. Hanya saja kolomnya sudah terisi dengan data yang telah kita masukkan sebelumnya (tidak kosong). jika kita sudah mengeditnya, maka secara otomatis data terupdate
+
+
+F. Order
+        Secara tampilan dan mekanisme hampir sama dengan dengan tab kasir. yang membedakan:
+      -        Harga produk yang tertera di tab order merupakan harga modal 
+* Di keranjang order terdapat tombol filter. Tombol filter berfungsi untuk memfilter barang2 berdasarkan asal supplier
+* Tambahkan tombol untuk ss, print, dan share list keranjang order (posisi tombol disesuaikan aja kira2 mana yg cocok
+* Di tab order  tambahkan halaman untuk melihat list history order. list history order berisi beberapa informasi ( Code order, tgl order,  Nama supplier, total nominal order, status pembayaran). disamping kanan informasi tersebut tambahkan tombol “add inventori”. tombol ini berfungsi untuk menambahkan stok produk yang telah di order kedalam inventori (update data stok produk)
+* jika kita klik salah satu list history order maka kita akan masuk kedalam rincian detail order yang berisi informasi produk yang dibeli (sama seperti info yang ada di keranjang order.)
+* Pada saat menekan tombol “proses pembayaran” akan muncul pop up yang berisi pesan “Pilih Metode Pembayaran” dan terdapat dua tombol pilihan dibawahnya (Cash & Kredit).
+   * Jika memilih Cash maka akan muncul pop up konfirmasi yang berisi pesan “Apakah Transaksi Ingin dilanjutkan” dan 2 buah tombol  (Ya & Tidak). Jika pilih “Ya” maka akan data order tersebut akan dimasukkan kedalam data pengeluaran. Jika pilih “Tidak” maka proses transaksi akan dibatalkan ( list produk yang ada di keranjang barang tetap masih ada)
+   * Jika memilih Hutang maka akan muncul pop up konfirmasi yang berisi pesan “Apakah Transaksi Ingin dilanjutkan” dan 2 buah tombol  (Ya & Tidak). Jika pilih “Ya” maka akan data order tersebut akan dimasukkan kedalam data Hutang. Jika pilih “Tidak” maka proses transaksi akan dibatalkan ( list produk yang ada di keranjang barang tetap masih ada)
+* Bagian informasi pelanggan (di tab kasir) dihapus saja
+* Catatan: Tab order hanya berfungsi untuk membuat list order saja serta untuk mempermudah dalam menghitung pengeluaran dan hutang dari supplier secara otomatis. Jadi tab ini bukan tempat untuk order barang langsung ke sistem supplier. Jika ingin meng-order produk ke supplier, admin harus mengirimkan list order ke kontak WA supplier. Ada beberapa cara untuk mengirim list order. bisa dengan cara menekan tombol  ss (utk membuat screenshot lalu mengirim ke wa supplier), print(untuk mencetak list order secara fisik), dan share list keranjang order (otomatis terhubung ke wa lalu pilih kontak supplier yang mana di dalam wa).
+
+
+G. Penjualan
+* Tab penjualan digabung ke dalam laporan saja (tab laporan > penjualan). Pastikan riwayat transaksinya tetap ada
+* Ketika kita menekan salah satu list transaksi, maka akan muncul list produk2 apa saja yang dibeli dalam transaksi tersebut dengan format list sama seperti di list keranjang belanja yang ada di tab kasir
+E. Hutang
+* Tab Hutang digabung ke dalam laporan saja (tab laporan > hutang). 
+* Didalam tab hutang menampilkan list data hutang (code order, jumlah hutang, asal supplier, tanggal hutang, tanggal jatuh tempo, tanggal bayar hutang (jika belum bayar maka di kosongkan), status hutang (lunas / belum lunas)
+* Ketika kita menekan salah satu list hutang, maka akan muncul list produk2 apa saja yang kita order sebelumnya dengan format list yang sama seperti di list keranjang order yang ada di tab order.
+* terdapat sebuah tombol filter untuk memisahkan list berdasarkan nama supplier maupun jangka waktu
+
+
+ D. Piutang
+* Tab piutang digabung ke dalam laporan saja (tab laporan > piutang). 
+* Didalam tab piutang menampilkan list data piutang (code transaksi, nama customer, jumlah piutang, tanggal piutang, tanggal jatuh tempo, sisa piutang, tanggal bayar piutang (jika belum bayar maka di kosongkan), status piutang (lunas / belum lunas)
+* Ketika kita menekan salah satu list piutang, maka akan muncul list produk2 apa saja yang terdapat pada transaksi sebelumnya dengan format list yang sama seperti di list keranjang belanja yang ada di tab kasir.
+* terdapat sebuah tombol filter untuk memisahkan list berdasarkan nama customer maupun jangka waktu
+
+
+E. Penghasilan
+* Tab Penghasilan digabung ke dalam laporan saja (tab laporan > penghasilan). 
+* Didalam tab penghasilan menampilkan list data penghasilan yang berasal dari data penjualan maupun dari data piutang (code transaksi, nama customer, tanggal pemasukan, pendapatan bersih, pendapatan kotor, status (lunas/piutang)
+* Ketika kita menekan salah satu list penghasilan, maka akan muncul list produk2 apa saja yang terdapat pada transaksi sebelumnya dengan format list yang sama seperti di list keranjang belanja yang ada di tab kasir.
+* terdapat sebuah tombol filter untuk memisahkan list berdasarkan nama customer, jangka waktu, status.
+* Selain list data penghasilan, didalamnya terdapat ringkasan informasi(Seperti total penghasilan kotor, penghasilan bersih, total nominal piutang, dll) yang dapat di filter sesuai dengan jangka waktu (ada tombol filternya). 
+E. Pengeluaran
+* Tab Pengeluaran digabung ke dalam laporan saja (tab laporan > pengeluaran). 
+* Didalam tab pengeluaran menampilkan list data pengeluaran yang berasal dari data hutang maupun dari data order (code order, nama supplier, jumlah pengeluaran, tanggal pengeluaran,status (lunas/hutang).
+* Ketika kita menekan salah satu list pengeluaran, maka akan muncul list produk2 apa saja yang terdapat pada order sebelumnya dengan format list yang sama seperti di list keranjang order yang ada di tab order.
+* terdapat sebuah tombol filter untuk memisahkan list berdasarkan nama supplier, jangka waktu, status.
+* Selain list data pengeluaran, didalamnya terdapat ringkasan informasi(Seperti total pengeluaran, total nominal hutang, dll) yang dapat di filter sesuai dengan jangka waktu (ada tombol filternya).
